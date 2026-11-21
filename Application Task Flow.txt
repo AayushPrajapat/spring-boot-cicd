@@ -1,0 +1,21 @@
+1. Created Project
+
+2. Create a Jar File of Project using below command
+     mvn clean package
+
+3. Create a Docker File for containerization of the project.
+
+4. Build the Docker Image using below command
+     docker build -t <image_name> .   (dot means current directory)
+       e.g. docker build -t spring-boot-cicd .
+
+5. Run the Docker Container using below command
+     docker run -d -p <host_port>:<container_port> <image_name>
+       e.g. docker run -d -p 8080:8080 spring-boot-cicd:latest
+
+6. Verify the application is running by accessing the URL in a web browser or using curl command
+     e.g. http://localhost:8080/api/welcome
+
+7. Push the Docker Image on Docker Hub Repository using below command
+     docker push <dockerhub_username>/<image_name>:<tag>
+       e.g. docker push myusername/spring-boot-cicd:latest
